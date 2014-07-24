@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<title>浏览--<%= @blog.title %></title>
+<div class="showblock">
+	<div class="avater">
+		<img src="/pictures/ava/head2.jpg" class="users"/>
+		<u class="timediv">
+			<%= @blog.created_at%>
+		</u>
+	</div>
+	<div class="title">
+		<h1>
+			<%= @blog.title%>
+		</h1>
+	</div>
+	<div class="mess">
+		<b>摘要:</b>
+			<%= @blog.summary%>
+	</div>
+	<div class="docu">
+			<%= raw @blog.content%>
+	</div>
+
+
+<%= link_to 'Edit', edit_blog_path(@blog),:class=>"btn btn-info", :style=>"margin:2% 0 1% 6%;",'data-no-turbolink' => true %> 
+<%= link_to 'Back', blogs_path ,:class=>"btn btn-success", style:"margin:2% 0 1% 6%;"%>
+<%= link_to "删除",@blog, method: :delete, data: { confirm: '确认删除?' },:class=>"btn btn-danger", style:"margin:2% 0 1% 6%;" %>
+	
+</div>

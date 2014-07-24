@@ -1,0 +1,63 @@
+<%= content_for :title do  %>
+博客编辑--
+<% end %>
+
+<div class="showblock">
+  <%= link_to "GoBack",blogs_path,:class=>"btn btn-sucess", style:"margin:2% 0 1% 6%;" %>
+
+<%= form_for(@blog) do |f| %>
+  <div class="picture">
+    <h3>头像选择：</h3>
+    <div class="field">
+  </div>
+    <input type="hidden" name="avatar" value="" id="avatar_input" >
+    <div class="well sidebar-nav">
+    <% 10.times do |x| %>
+      <img src="/pictures/ava/head<%= x+1 %>.jpg" class="avatar" data-val="<%= x %>" />
+    <% end %>
+       <div class="clear" ></div>
+    </div>
+     <div class="clear" ></div>
+  </div>
+  <div class="new_title">
+    <h3>文章标题：</h3>
+    <%= f.text_field :title,:class=>"form-control",maxlength:200 ,style:"width:560px;" %>
+  </div>
+  <div class="new_message">
+    <h3>文章摘要:</h3>
+        <%= f.text_area :summary,:class=>"form-control",style:"resize: none;height:200px; " %>
+  </div>
+  <div class="new_docu">
+    <h3>文章正文:</h3>
+    <%= f.kindeditor :content,:height => 650 ,:autoHeightMode => true,:window_onload => true %>
+  </div>
+
+    <div class="actions">
+      <%= f.submit "发布",:class=>"btn btn-info  ",style:"margin:1% 0 1% 6%;"  %>
+    </div>
+
+
+
+
+</div>
+
+<%= f.label :is_boy %><br>
+<%= f.check_box :is_boy %>
+
+<% end %>
+<%= content_for :js do %>
+<script>
+    $('.avatar').hover(function(){
+      $('.avatar').removeClass("ava_hover");
+      $(this).addClass("ava_hover");
+      
+      });
+    $('.avatar').click(function(){
+      $('.avatar').removeClass("ava_clicked");
+      $(this).addClass("ava_clicked");
+      var val=$(this).attr("data-val");
+      $('#avatar_input').attr("value",val);
+    });
+  
+  </script>
+<% end %>
