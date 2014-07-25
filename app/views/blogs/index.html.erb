@@ -1,21 +1,6 @@
-<div class="showblock"> 
+
   <h1 class="news"><%= link_to "记录",new_blog_path ,'data-no-turbolink' => true%></h1>
-  <div id="mainbody">
-    <div class="info">
-      <figure> <img  id="showimg" src="../pictures/pic<%= rand(9) %>.jpg" class="big">
-        <figcaption>
-          <strong>趁我们都还年轻</strong>
-          多走几步路，多欣赏下沿途的风景，不要急于抵达目的地而错过了流年里温暖的人和物；
-          趁我们都还年轻，多说些浪漫的话语，多做些幼稚的事情，不要嫌人笑话错过了生命中最美好的片段和场合；
-          趁我们都还年轻，把距离缩短，把时间延长。趁我们都还年轻，多做些我们想要做的任何事。
-          当我们被误解时，会花很多时间去辩白。 
-          但没有用，没人愿意听，大家习惯按自己的所闻、理解做出判别，每个人其实都很固执。
-          与其努力且痛苦的试图扭转别人的评判，不如默默承受，给大家多一点时间和空间去了解。
-          而我们省下辩解的功夫，去实现自身更久远的人生价值。其实，渡人如渡己，渡已，亦是渡人。
-        </figcaption>
-      </figure>
-    </div>
-  </div>    
+<div class="showblock"> 
   <section class="main">
     <% @blogs.each do |blog| %>
           <div class="time_list">
