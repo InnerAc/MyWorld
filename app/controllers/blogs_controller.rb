@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [ :edit, :update, :destroy]
 
   # GET /blogs
   # GET /blogs.json
@@ -10,6 +10,17 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    begin
+      @blog = Blog.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "访问出错"
+      redirect_to index_path, :notice =>'Invalid blog'
+      return
+    else
+      respond_to do |format|
+        format.html # index.html.erb
+     end
+   end
   end
 
   # GET /blogs/new
