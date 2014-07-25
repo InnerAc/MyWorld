@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :users
+
+  get '/login' => 'session#index'
+  post '/login' => 'session#create'
+  delete '/logout' => 'session#destroy'
+
   resources :blogs
   root :to => "blogs#index",as:"index"
 
