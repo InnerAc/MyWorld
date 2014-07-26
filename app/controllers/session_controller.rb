@@ -8,9 +8,10 @@ class SessionController < ApplicationController
 
 	# post /login
 	def create
-		if teacher = User.auth(params[:name],params[:password])
-			session[:user_id]=teacher.id
-			session[:user_name]=teacher.name
+		if user = User.auth(params[:name],params[:password])
+			session[:user_id]=user.id
+			session[:user_name]=user.name
+			session[:user_is_admin]=user.is_admin
 			redirect_to index_url
 		else
 			redirect_to login_url,:alert => "不正确的用户名/密码"
@@ -20,6 +21,8 @@ class SessionController < ApplicationController
 	# delete /logout
 	def destroy
 		session[:user_id]=nil
+		session[:user_is_admin]=nil
+		session[:user_name]=nil
 		redirect_to login_url,notice: "已退出登录"
 	end
 end

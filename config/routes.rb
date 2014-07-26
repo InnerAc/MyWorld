@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   delete '/logout' => 'session#destroy'
 
   resources :blogs
-  root :to => "blogs#index",as:"index"
+  get 'blogs' => 'blogs',as:'index'
+  root :to => "session#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

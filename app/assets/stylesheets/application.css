@@ -23,3 +23,19 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+.guide {
+	margin-top: 1%;
+	color:white;
+	border-color: red;
+	border:3px;
+	background-color: "#333";
+}
+.guide span {
+	margin-right: 0.5%;
+	float: right;
+}
+.guide span:hover {  
+ color: #eeeeee;  
+ text-decoration: #fefefe; 
+ text-shadow: 3px 3px 3px #FF0000;
+}  

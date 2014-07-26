@@ -8,8 +8,13 @@
   
 </head>
 <body>
-
-  <%= link_to "退出",logout_path,method: :delete %>
+<% if session[:user_id]%>
+<div class="guide">
+  <span><%= link_to "退出",logout_path,method: :delete %></span>
+  <span><%= link_to "#{session[:user_name]}",logout_path,method: :delete %></span>
+  <span><%= link_to "记录",new_blog_path ,'data-no-turbolink' => true%></span>
+</div>
+<%end%>
 <%= yield %>
 
 </body>

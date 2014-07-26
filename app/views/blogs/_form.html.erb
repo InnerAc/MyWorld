@@ -54,6 +54,8 @@
 <%= f.label :is_boy %><br>
 <%= f.check_box :is_boy %>
 
+<%= f.hidden_field :editor,:value => "#{session[:user_name]}" %>
+
 <% end %>
 <%= content_for :js do %>
 <script>
