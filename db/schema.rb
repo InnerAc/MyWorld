@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140726020922) do
+ActiveRecord::Schema.define(version: 20140726055215) do
+
+  create_table "avatars", force: true do |t|
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end
 
   create_table "blogs", force: true do |t|
     t.string   "title"
@@ -20,7 +27,8 @@ ActiveRecord::Schema.define(version: 20140726020922) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_boy"
-    t.string   "editor"
+    t.integer  "user_id"
+    t.integer  "avatar_id"
   end
 
   create_table "users", force: true do |t|

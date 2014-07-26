@@ -4,10 +4,10 @@
           <div class="time_list">
           <% if blog.is_boy? %>
                 <div class="ava_left">
-                     <%= link_to( tag(:img ,src: "/pictures/ava/head#{blog.id%10}.jpg",id:"ava") ,blog) %>
+                     <%= link_to image_tag(avatar_thumb(blog),:class=>'avas'),blog %>
                      <center>
                         <%=blog.created_at.strftime("%Y-%m-%d %H:%M")%>
-                        <%=blog.editor%>    
+                        <%=blog.user.name if blog.user%>    
                      </center>
                 </div>
                 <div class="dialog_left">
@@ -19,10 +19,10 @@
           <% else %>
 
                 <div class="ava_right">
-                    <%= link_to( tag(:img ,src: "/pictures/ava/head#{blog.id%10}.jpg",id:"ava") ,blog) %>
+                <%= link_to image_tag(avatar_thumb(blog),:class=>'avas'),blog %>
                     <center>
                         <%=blog.created_at.strftime("%Y-%m-%d %H:%M")%>
-                        <%=blog.editor%>    
+                        <%=blog.user.name if blog.user%>    
                      </center>
                 </div>
                 <div class="dialog_right">

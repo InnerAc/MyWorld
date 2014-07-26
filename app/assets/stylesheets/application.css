@@ -33,9 +33,20 @@
 .guide span {
 	margin-right: 0.5%;
 	float: right;
+	font-size: 15px;
 }
 .guide span:hover {  
  color: #eeeeee;  
  text-decoration: #fefefe; 
  text-shadow: 3px 3px 3px #FF0000;
 }  
+.clear {
+	clear: both;
+}
+h1 {
+	color: white;
+	text-align:center;
+}
+.actions {
+	text-align:center;
+}

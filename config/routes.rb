@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
+  resources :avatars
+
   resources :users
 
-  get '/login' => 'session#index'
+  get '/login' => 'session#index',as:'login'
   post '/login' => 'session#create'
   delete '/logout' => 'session#destroy'
 
+
   resources :blogs
-  get 'blogs' => 'blogs',as:'index'
-  root :to => "session#index"
+  get 'users/edit' => 'users#edit',as:'useredit'
+  root :to => "blogs#index",as:'index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

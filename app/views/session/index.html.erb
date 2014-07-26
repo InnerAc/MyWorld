@@ -1,5 +1,5 @@
 <div class="login">  
-    <%= form_tag "",name: "form",:class => "login-form",onSubmit: "return check()" do %>
+    <%= form_tag login_path,name: "form",:class => "login-form",onSubmit: "return check()" do %>
     	<% if flash[:alert] %>
 			<div class="alert alert-warning">
 			<%= alert %>

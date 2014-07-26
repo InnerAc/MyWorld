@@ -18,13 +18,14 @@
 
   <div class="picture">
     <h3>头像选择：</h3>
-    <div class="field">
-  </div>
     <input type="hidden" name="avatar" value="" id="avatar_input" >
     <div class="well sidebar-nav">
-    <% 10.times do |x| %>
-      <img src="/pictures/ava/head<%= x+1 %>.jpg" class="avatar" data-val="<%= x %>" />
+
+    <% @avatars.each do |avatar| %>
+      <%= image_tag avatar.avatar.url(:thumb),data:{val:avatar.id},:class=>"avatar" %>
     <% end %>
+
+
        <div class="clear" ></div>
     </div>
      <div class="clear" ></div>
@@ -43,7 +44,7 @@
   </div>
 
     <div class="actions">
-      <%= f.submit "发布",:class=>"btn btn-info  ",style:"margin:1% 0 1% 6%;"  %>
+      <%= f.submit "发布",:class=>"btn btn-info  ",style:"margin:1% 0 1% 0;",onclick:"return check_form()"  %>
     </div>
 
 
@@ -54,7 +55,7 @@
 <%= f.label :is_boy %><br>
 <%= f.check_box :is_boy %>
 
-<%= f.hidden_field :editor,:value => "#{session[:user_name]}" %>
+<%= f.hidden_field :editor,:value => "#{session[:user_id]}" %>
 
 <% end %>
 <%= content_for :js do %>
@@ -70,6 +71,21 @@
       var val=$(this).attr("data-val");
       $('#avatar_input').attr("value",val);
     });
-  
+  function check_form(){
+    var err_msg=""
+    if(!$('#avatar_input').val()){
+      err_msg+="请选择头像！\n";
+    }
+    if(!$('#blog_title').val()){
+      err_msg+="请输入标题！\n";
+    }
+    if(!$('#blog_summary').val()){
+      err_msg+="请输入摘要！\n";
+    }
+    if(err_msg.length > 0){
+      alert(err_msg);
+      return false;
+    }
+  } 
   </script>
 <% end %>

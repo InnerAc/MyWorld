@@ -10,20 +10,24 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+<div class="input-group" style="width:40%;">
+  <span class="input-group-addon">用户名</span>
+    <%= f.text_field :name ,class: "form-control"%>
+</div>
+<div class="input-group" style="width:40%;">
+    <span class="input-group-addon">密<span class="glyphicon glyphicon-heart-empty"></span>码</span>
+    <%= f.password_field :pwd ,class: "form-control"%>
+</div>
+<%if session[:user_is_admin]%>
+  <div class="input-group">
+   <span class="checkbox">
+        <%= f.check_box :is_admin %>
+    </span>
+    
   </div>
-  <div class="field">
-    <%= f.label :pwd %><br>
-    <%= f.text_field :pwd %>
-  </div>
-  <div class="field">
-    <%= f.label :is_admin %><br>
-    <%= f.check_box :is_admin %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%end%>
+<div class="actions">
+    <%= f.submit "修改",:class=>"btn btn-info"%>
+    <%= link_to "返回",blogs_path,:class=>"btn btn-info", style:"margin:1% 0 1% 6%;" %>
+</div>
 <% end %>

@@ -47,3 +47,8 @@ gem 'rails_kindeditor'
 
 # This is a css help is simple http://www.bootcss.com/
 gem 'bootstrap-sass'
+
+# This is a picture upfile.It need to install imagemagick on Ubuntu and update&upgrade
+# sudo apt-get install imagemagick
+# https://github.com/thoughtbot/paperclip
+gem "paperclip", "~> 4.1"

@@ -1,6 +1,6 @@
 require 'digest/sha2'
 class User < ActiveRecord::Base
-
+	has_many :blogs
 	def User.auth(name,password)
 		if user = find_by_name(name)
 			if user.pwd== password

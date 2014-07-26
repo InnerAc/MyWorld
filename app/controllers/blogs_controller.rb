@@ -1,10 +1,11 @@
-class BlogsController < ApplicationController
+class BlogsController < PermissionController
   before_action :set_blog, only: [ :edit, :update, :destroy]
+  before_action :set_avatar, only: [ :create, :update, :new,:edit]
 
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    @blogs = Blog.order(created_at: :desc)
   end
 
   # GET /blogs/1
@@ -30,6 +31,7 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1/edit
   def edit
+    
   end
 
   # POST /blogs
@@ -78,8 +80,14 @@ class BlogsController < ApplicationController
       @blog = Blog.find(params[:id])
     end
 
+    def set_avatar
+      @avatars=Avatar.all
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :summary, :content,:is_boy,:editor)
+      param=params.require(:blog).permit(:title, :summary, :content,:is_boy)
+      param[:user_id]=session[:user_id]
+      param[:avatar_id]=params[:avatar]
+      return param
     end
 end

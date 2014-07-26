@@ -1,6 +1,7 @@
-<h1>Listing users</h1>
-
-<table>
+<h1>用户列表</h1>
+<% if session[:user_is_admin]%>
+<div class="users_list">
+  <table>
   <thead>
     <tr>
       <th>Name</th>
@@ -23,7 +24,12 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
 <%= link_to 'New User', new_user_path %>
+
+</div>
+<%else%>
+    <center>
+        <div class="alert alert-danger" role="alert">你没有权限访问</div>
+        <%= link_to "返回",blogs_path,:class=>"btn btn-warning"%>
+    </center>
+<%end%>

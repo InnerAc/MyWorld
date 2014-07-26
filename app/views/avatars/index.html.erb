@@ -1,0 +1,12 @@
+<div class="picture" >
+    <h1>头像浏览
+      <%= link_to '上传新头像', new_avatar_path ,:class=>"btn btn-info"%></h1>
+    <div class="well sidebar-nav">
+
+    <% @avatars.each do |avatar| %>
+      <%= image_tag avatar.avatar.url(:thumb),:class=>"avatar" %>
+    <% end %>
+     <div class="clear" ></div>
+    </div>
+     <div class="clear" ></div>
+  </div>
