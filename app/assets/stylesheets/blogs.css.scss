@@ -89,7 +89,10 @@ img.big
 	margin: 3% 0 3% 0;
 	padding: auto;
 	background: none;
-	width: 100%;
+	width: 100%;	
+}
+.time_list a{
+	color:black !important;
 }
 .clear {
 	clear: both;
@@ -136,21 +139,29 @@ img.big
 	-moz-border-radius:10px;
 	border-radius:10px;
 }
+// .triangle-isosceles.left {
+// 	margin-left:8%;
+// 	/*background:#f3961c;*/
+// 	background:-webkit-gradient(linear, 0 0, 0 100%, from(#63F6FF), to(#CA65FF));
+// 	background:-moz-linear-gradient(#63F6FF, #CA65FF);
+// 	background:-o-linear-gradient(#63F6FF, #CA65FF);
+// 	background:linear-gradient(#63F6FF, #CA65FF);
+// }
+// .triangle-isosceles.right {
+// 	margin-right:8%px;
+// 	/*background:#f3961c;*/
+// 	background:-webkit-gradient(linear, 0 0, 0 100%, from(#CA65FF), to(#63F6FF	));
+// 	background:-moz-linear-gradient(#CA65FF,#63F6FF);
+// 	background:-o-linear-gradient(#CA65FF,#63F6FF);
+// 	background:linear-gradient(#CA65FF,#63F6FF);
+// }
 .triangle-isosceles.left {
 	margin-left:8%;
-	/*background:#f3961c;*/
-	background:-webkit-gradient(linear, 0 0, 0 100%, from(#63F6FF), to(#FFC0CB));
-	background:-moz-linear-gradient(#63F6FF, #FFC0CB);
-	background:-o-linear-gradient(#63F6FF, #FFC0CB);
-	background:linear-gradient(#63F6FF, #FFC0CB);
+	background:#C5F8FF;
 }
 .triangle-isosceles.right {
 	margin-right:8%px;
-	/*background:#f3961c;*/
-	background:-webkit-gradient(linear, 0 0, 0 100%, from(#FFC0CB), to(#63F6FF	));
-	background:-moz-linear-gradient(#FFC0CB,#63F6FF);
-	background:-o-linear-gradient(#FFC0CB,#63F6FF);
-	background:linear-gradient(#FFC0CB,#63F6FF);
+	background:#FFDAFE;
 }
 .triangle-isosceles:after {
 	content:"";
@@ -159,7 +170,7 @@ img.big
 	left:50px;
 	border-width:15px 15px 0; 
 	border-style:solid;
-	border-color:#FFC0CB transparent;
+	border-color:#FFDAFE transparent;
     display:block; 
     width:0;
 }
@@ -168,7 +179,7 @@ img.big
 	left:-50px;
 	bottom:auto;
 	border-width:10px 50px 10px 0;
-	border-color:transparent #63F6FF;
+	border-color:transparent #C5F8FF;
 }
 .triangle-isosceles.right:after {
 	top:16px; /* controls vertical position */
@@ -176,7 +187,7 @@ img.big
 	bottom:auto;
     left:auto;
 	border-width:10px 0 10px 50px;
-	border-color:transparent #FFC0CB;
+	border-color:transparent #FFDAFE;
 }
 /*----------new&edit_page-----------*/
 .showblock {
